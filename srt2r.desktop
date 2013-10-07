@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Srt2R
+Comment=Convertit des fichiers de taggage srt vers R 
+Exec=/usr/bin/srt2r
+Icon=/usr/share/srt2R/srt2R.svg
+Terminal=false
+Type=Application
+Categories=Utility;FileTools;
+Name[fr_FR]=srt2R

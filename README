@@ -1,0 +1,75 @@
+srt2R
+=====
+
+Introduction
+------------
+
+Srt2R est développé par le laboratoire Topaza Pyra au sein de l'université Lyon 2.
+
+Le logiciel permet d'exporter des fichiers de taggage au format srt vers R. 
+Un fichier csv et un fichier de syntaxe R sont alors créés, permettant d'exploiter les données dans un logiciel de traitement statistique.
+
+Création d'un paquet deb à partir des sources
+---------------------------------------------
+
+Pour créer un fichier deb, les paquets suivants doivent être présents sur la machine:
+  * python-stdeb
+  * fakeroot
+  * python-all
+  
+Placez-vous ensuite dans le répertoire contenant les sources de Srt2R et lancez la commande :
+
+python setup.py --command-packages=stdeb.command bdist_deb
+
+Un dossier "deb_dist" est créé dans le répertoire contenant le paquet deb.
+
+Installation
+------------
+
+Les paquets suivants doivent être présents sur votre machine :
+  * python
+  * python-qt4
+
+Une fois installé avec votre gestionnaire de paquets, le logiciel apparait dans la catégorie "Accessoires" ou "Divers".
+
+Utilisation
+-----------
+
+Pour fonctionner correctement, vos fichiers de taggage doivent respecter une certaine structure :
+
+- chaque tag doit être placé entre crochets. Ex : [montag]
+- les données valables pour l'ensemble d'un fichier doivent être placées entre double astérisques, avec le nom de la variable et son contenu séparés par le symbole "deux points". Ex : **utilisateur:jdupont**
+- les variables concernant l'ensemble des fichiers d'un répertoire doivent être placées directement dans le titre des fichiers. Chaque variable doit être séparée par un double underscore (__). Ex : P__01__A__20131005.srt
+- un fichier "config" doit être placé dans le répertoire des fichiers srt. Ce dernier contiendra le nom de chaque variable de titre séparé par une tabulation. Ex : Statut  Id  Version Date
+
+  * Exemple de fichier srt :
+
+Titre : P__2__1__A__20131002.srt
+
+Contenu :
+
+1
+00:00:00,000 --> 00:01:14,681
+**intervenant:f.durand** **utilisateur:j.dupont**
+
+2
+00:02:35,173 --> 00:03:23,760
+[autre]
+
+3
+00:03:23,760 --> 00:04:04,908
+[tag]
+
+4
+00:04:04,908 --> 00:05:16,398
+[tag2][test]
+
+5
+00:05:16,398 --> 00:05:26,335
+[autre][tag]
+
+  * Exemple de fichier config :
+
+Contenu :
+
+Statut	Établissement	Id	Version	Date

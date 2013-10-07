@@ -1,0 +1,31 @@
+= Release 0.4 =
+
+   * Converts multiple srt files
+
+   * Checks the number of variables in the filename and config file
+
+   * Fix bug with specials characters
+
+   * Code optimization
+
+= Release 0.3 =
+
+   * Retrieves metadata from first sequence
+   
+   * Code optimization
+   
+   * Add changelog and copyright files
+   
+   * Change section to 'misc'
+   
+   * Add window icon
+   
+= Release 0.2 =
+
+   * Retrieves variables from filename
+   
+   * Retrieves filename variables names from config file
+   
+= Release 0.1 =
+
+   * Initial release
