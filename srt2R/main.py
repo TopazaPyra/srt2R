@@ -35,8 +35,8 @@ class Srt2RApplication(QtGui.QMainWindow, Ui_MainWindow):
     
     
     def convert(self):
-        srtFilesFolder = str(unicode(self.srtFilesFolderEdit.text()).encode("utf-8"))
-        folder = str(unicode(self.folderEdit.text()).encode("utf-8"))
+        srtFilesFolder = unicode(self.srtFilesFolderEdit.text())
+        folder = unicode(self.folderEdit.text())
     
     
         def getConfig(srtFilesFolder):
@@ -62,7 +62,7 @@ class Srt2RApplication(QtGui.QMainWindow, Ui_MainWindow):
             
                 for fileInFolder in os.listdir(srtFilesFolder):
                         if fileInFolder.endswith('.srt'):
-                            srtFiles.append(str(srtFilesFolder + '//' + fileInFolder))
+                            srtFiles.append(srtFilesFolder + '//' + fileInFolder)
                             
                 if (srtFiles):
                     return srtFiles
@@ -78,7 +78,7 @@ class Srt2RApplication(QtGui.QMainWindow, Ui_MainWindow):
             
             parsedFile = {}
             
-            parsedFile['fileName'] = unicode(ntpath.basename(srtFile), sys.stdin.encoding)
+            parsedFile['fileName'] = ntpath.basename(srtFile)
             
             content = file(srtFile).read()
             content = content.replace('\n',  ' ')
