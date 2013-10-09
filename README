@@ -35,12 +35,30 @@ Une fois installé avec votre gestionnaire de paquets, le logiciel apparait dans
 Utilisation
 -----------
 
-Pour fonctionner correctement, vos fichiers de taggage doivent respecter une certaine structure :
+Pour fonctionner correctement, vos fichiers de taggage doivent respecter une certaine structure.
 
-- chaque tag doit être placé entre crochets. Ex : [montag]
-- les données valables pour l'ensemble d'un fichier doivent être placées entre double astérisques, avec le nom de la variable et son contenu séparés par le symbole "deux points". Ex : **utilisateur:jdupont**
-- les variables concernant l'ensemble des fichiers d'un répertoire doivent être placées directement dans le titre des fichiers. Chaque variable doit être séparée par un double underscore (__). Ex : P__01__A__20131005.srt
-- un fichier "config" doit être placé dans le répertoire des fichiers srt. Ce dernier contiendra le nom de chaque variable de titre séparé par une tabulation. Ex : Statut  Id  Version Date
+Srt2R supporte 3 niveaux d'étiquetage :
+- niveau 1 : normalisation des noms de fichier permettant de définir des variables communes à l'ensemble des fichiers de taggage.
+- niveau 2 : méta-données valables pour l'ensemble des séquences d'un fichier.
+- niveau 3 : mots-clés propres à chaque séquence définie dans le fichier srt.
+
+Les niveaux 1 et 3 sont obligatoires. La mise en place de méta-données est facultative. 
+
+  * Étiquettes de premier niveau (convention de nommage) : 
+
+Les variables sont placées directement dans le titre, séparées par un double underscore (__). Ex : P__01__A__20131005.srt
+Un fichier "config" doit être placé dans le répertoire des fichiers srt, contenant le nom de chaque variable de titre. Les noms doivent être écrits sur une même ligne, séparés par une tabulation. Ex : Statut  Id  Version Date
+ 
+  * Étiquettes de second niveau (méta-données) :
+
+Les méta-données doivent être placées dans la première séquence définie dans votre fichier. 
+Chaque étiquette est encadrée par des doubles astérisques (**) et contient le titre de la donnée suivie de son contenu, séparés par le signe "deux point" (:). Ex : **utilisateur:jdupont** 
+
+  * Étiquettes de troisième niveau (tags) :
+
+Pour chaque séquence définie dans le fichier srt, un ou plusieurs tags peuvent être associés.
+Chaque tag doit être placé entre crochets. Ex : [tag] 
+
 
   * Exemple de fichier srt :
 
@@ -72,4 +90,4 @@ Contenu :
 
 Contenu :
 
-Statut	Établissement	Id	Version	Date
+Statut	Établissement	Id	Version Date
