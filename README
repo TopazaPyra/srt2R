@@ -6,8 +6,8 @@ Introduction
 
 Srt2R est développé par le laboratoire Topaza Pyra au sein de l'université Lyon 2.
 
-Le logiciel permet d'exporter des fichiers de taggage au format srt vers R. 
-Un fichier csv et un fichier de syntaxe R sont alors créés, permettant d'exploiter les données dans un logiciel de traitement statistique.
+Le logiciel permet d'exporter des fichiers de taggage au format srt vers RKWard (interface graphique pour R). 
+Un fichier csv et un fichier de syntaxe R sont alors créés, permettant d'exploiter les données dans le logiciel de traitement statistique.
 
 Création d'un paquet deb à partir des sources
 ---------------------------------------------
